@@ -5,7 +5,7 @@ import json
 
 SAVE_DIRECTORY = "images/" #The folder where the images get saved
 LANGUAGES = [{"code": "en-us", "folder": "en/"}, {"code": "de-de", "folder": "de/"}] #Languages you want to download, choose from the following list:
-#[{"code": "en-us", "folder": "en/"}, {"code": "de-de", "folder": "de/"}, {"code": "es-es", "folder": "es/"}, {"code": "fr-fr", "folder": "fr/"}, {"code": "it-it", "folder": "it/"}]
+#[{"code": "en-us", "folder": "en/"}, {"code": "de-de", "folder": "de/"}, {"code": "es-es", "folder": "es/"}, {"code": "fr-fr", "folder": "fr/"}, {"code": "it-it", "folder": "it/"}, {"code": "pl-pl", "folder": "pl/"}, {"code": "zh-hans", "folder": "chi-sim/"}, {"code": "zh-hant", "folder": "chi-trad/"}]
 
 for lang in LANGUAGES:
     if not os.path.exists(SAVE_DIRECTORY + lang["folder"]): #if the folder doesn't exist, create it
