@@ -9,4 +9,4 @@ Tool to download PNG image files of cards from all printed sets.
 3.  Double click to run the file **downloader.py**.
 4.  Once the script has run, you will have a new folder *images* that will hold the image files for all cards.
 
-![Teliga](366_Teliga.png)
+![Card Art](https://cdn.keyforgegame.com/media/card_front/en/435_003_7558PM9XQ48P_en.png)
