@@ -7,7 +7,8 @@ SAVE_DIRECTORY = "images/" #The folder where the images get saved
 #All expansions with their ID
 EXPANSIONS = {
     "341": {"name": "Call of the Archons", "count": 370},
-    "435": {"name": "Age of Ascension", "count": 370}
+    "435": {"name": "Age of Ascension", "count": 370},
+    "452": {"name": "Worlds Collide", "count": 415}
     }
 #(Out-)Comment any languages you (don't) want to download
 LANGUAGES = [
@@ -45,6 +46,7 @@ for lang in LANGUAGES:
 
     #Iterate over all expansion to search for specific decks only
     for exp_id in EXPANSIONS:
+        expansion = EXPANSIONS[exp_id]
         save_dir = SAVE_DIRECTORY + lang["folder"] + expansion["name"]
 
         #Quick check to see if the cards have already been downloaded
@@ -65,9 +67,12 @@ for lang in LANGUAGES:
 
                 for card in decks["_linked"]["cards"]:  #Get the info for every card
                         card_number = str(card["card_number"])
-                        card_title = card["card_title"].replace(" ", "_")
+                        card_title = card["card_title"].replace(" ", "_").replace('"', "'").replace("?", "")
                         card_image = card["front_image"]
                         card_expansion = str(card["expansion"])
+                        if(card_expansion != exp_id):   #Possible legacy card
+                            if(card_expansion in EXPANSIONS):   #Only skip if we know that exp_id, otherwise it's an Anomaly
+                                continue
 
                         filename = save_dir + "/" + card_number + "_" + card_title + ".png"    #local filename to save the image
 
