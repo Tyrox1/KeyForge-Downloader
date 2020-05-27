@@ -8,7 +8,8 @@ SAVE_DIRECTORY = "images/" #The folder where the images get saved
 EXPANSIONS = {
     "341": {"name": "Call of the Archons", "count": 370},
     "435": {"name": "Age of Ascension", "count": 370},
-    "452": {"name": "Worlds Collide", "count": 415}
+    "452": {"name": "Worlds Collide", "count": 415},
+    "479": {"name": "Mass Mutation", "count": 422}
     }
 #(Out-)Comment any languages you (don't) want to download
 LANGUAGES = [
