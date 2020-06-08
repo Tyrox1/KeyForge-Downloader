@@ -9,7 +9,7 @@ EXPANSIONS = {
     "341": {"name": "Call of the Archons", "count": 370},
     "435": {"name": "Age of Ascension", "count": 370},
     "452": {"name": "Worlds Collide", "count": 415},
-    "479": {"name": "Mass Mutation", "count": 422}
+    "479": {"name": "Mass Mutation", "count": 425}  # 422 cards + 3 gigantic cards
     }
 #(Out-)Comment any languages you (don't) want to download
 LANGUAGES = [
@@ -61,7 +61,7 @@ for lang in LANGUAGES:
         #Go over new pages as long as cards are missing
         page_counter = 1
         while cards_missing:
-                r = opener.open("https://www.keyforgegame.com/api/decks/?page={}&expansion={}&links=cards&page_size=50&ordering=-date".format(page_counter, exp_id)) #load a list of decks including links to all the cards
+                r = opener.open("https://www.keyforgegame.com/api/decks/?page={}&expansion={}&links=cards&page_size=100&ordering=-date".format(page_counter, exp_id)) #load a list of decks including links to all the cards
                 decks_raw = r.read()
 
                 decks = json.loads(decks_raw)
@@ -71,9 +71,14 @@ for lang in LANGUAGES:
                         card_title = card["card_title"].replace(" ", "_").replace('"', "'").replace("?", "")
                         card_image = card["front_image"]
                         card_expansion = str(card["expansion"])
+                        card_type = card["card_type"]
+                        
                         if(card_expansion != exp_id):   #Possible legacy card
                             if(card_expansion in EXPANSIONS):   #Only skip if we know that exp_id, otherwise it's an Anomaly
                                 continue
+
+                        if(card_type == "Creature2"):   #Gigantic card second half
+                            card_title += "_gigantic"
 
                         filename = save_dir + "/" + card_number + "_" + card_title + ".png"    #local filename to save the image
 
