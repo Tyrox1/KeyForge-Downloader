@@ -3,6 +3,8 @@
 ### Project Summary
 Tool to download PNG image files of cards from all printed sets.
 
+It currently supports Call of the Archons, Age of Ascension, Worlds Collide, Mass Mutation and Dark Tidings.
+
 ### Instructions
 1. Make sure, python package `requests` is installed. If not install via `pip install requests` or `pip install -r requirements.txt`.
 2. In a code editor of your choice, open the file **downloader.py**.  DO NOT double-click on the file or it will run the script.
