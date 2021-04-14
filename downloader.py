@@ -6,20 +6,22 @@ EXPANSIONS = {
     "341": {"name": "Call of the Archons", "count": 370},
     "435": {"name": "Age of Ascension", "count": 370},
     "452": {"name": "Worlds Collide", "count": 415},
-    "479": {"name": "Mass Mutation", "count": 431} # 421 "normal" cards, 7 versions of Dark Æmber Vault + 3 gigantic cards
+    "479": {"name": "Mass Mutation", "count": 431}, # 421 "normal" cards, 7 versions of Dark Æmber Vault + 3 gigantic cards
+    "496": {"name": "Dark Tidings", "count": 429}
     }
 #(Out-)Comment any languages you (don't) want to download
 LANGUAGES = [
     {"code": "en-us", "folder": "english"},
     {"code": "de-de", "folder": "german"},
-#    {"code": "es-es", "folder": "spanish"},
-#    {"code": "fr-fr", "folder": "french"},
-#    {"code": "it-it", "folder": "italian"},
-#    {"code": "pl-pl", "folder": "polish"},
-#    {"code": "pt-pt", "folder": "potuguese"},
-#    {"code": "th-th", "folder": "thai"},
-#    {"code": "zh-hans", "folder": "chinese-simplified"},
-#    {"code": "zh-hant", "folder": "chinese-traditional"}
+    #{"code": "es-es", "folder": "spanish"},
+    #{"code": "fr-fr", "folder": "french"},
+    #{"code": "it-it", "folder": "italian"},
+    #{"code": "pl-pl", "folder": "polish"},
+    #{"code": "pt-pt", "folder": "potuguese"},
+    #{"code": "th-th", "folder": "thai"},
+    #{"code": "zh-hans", "folder": "chinese-simplified"},
+    #{"code": "zh-hant", "folder": "chinese-traditional"},
+    #{"code": "ko-ko", "folder": "korean"}
     ]
 
 #Create folders for all selected languages and expansions
@@ -95,6 +97,9 @@ for lang in LANGUAGES:
 
                 if(expansion["name"] == "Mass Mutation" and card_number == "001"): #Dark Æmber Vault
                     card_title = f"{card_title}_{card_house}"
+
+                if(card["rarity"] == "Evil Twin"):
+                    card_title += "_EvilTwin"
 
                 filename = f"{save_dir}/{card_number}_{card_title}.png" #local filename to save the image
 
