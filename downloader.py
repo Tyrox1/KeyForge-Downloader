@@ -1,7 +1,9 @@
 import os, sys, requests, json, time
 
 SAVE_DIRECTORY = "images"  # The folder where the images get saved
+
 # All expansions with their ID
+# If you don't want to download a specific expansion, reduce the count to 0, don't comment the whole line, it will crash otherwise
 EXPANSIONS = {
     "341": {"name": "Call of the Archons", "count": 370},
     "435": {"name": "Age of Ascension", "count": 370},
@@ -9,6 +11,7 @@ EXPANSIONS = {
     "479": {"name": "Mass Mutation", "count": 431},  # 421 "normal" cards, 7 versions of Dark Æmber Vault + 3 gigantic cards
     "496": {"name": "Dark Tidings", "count": 429}
     }
+
 # (Out-)Comment any languages you (don't) want to download
 LANGUAGES = [
     {"code": "en-us", "folder": "english"},
